@@ -1,5 +1,10 @@
 {
   "files.associations": {
-    "string.h": "c"
-  }
+    "string.h": "c",
+    "wordsearcher.h": "c",
+    "cstring": "c",
+    "stdio.h": "c",
+    "text.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
