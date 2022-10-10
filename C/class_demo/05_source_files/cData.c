@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,10 +11,10 @@ void show_strings();
 int main(void)
 {
 
-	show_sizes();
-	show_arrays();
-	show_structs();
-	show_memory();
+	// show_sizes();
+	// show_arrays();
+	// show_structs();
+	// show_memory();
 	show_strings();
 
 	return EXIT_SUCCESS;
@@ -27,6 +25,7 @@ void show_sizes()
 
 	printf("\n** Type output:\n");
 
+	// use sizeof to see the size used by type in memory
 	printf(" char size: %d\n", (int)sizeof(char));
 	printf(" short int size: %d\n", (int)sizeof(short int));
 	printf(" int size: %d\n", (int)sizeof(int));
@@ -38,7 +37,8 @@ void show_sizes()
 	printf(" long double size: %d\n", (int)sizeof(long double));
 
 	int foo;
-	printf(" foo size: %d\n", (int)sizeof foo);
+	printf(" foo(variable) size: %d\n", (int)sizeof foo);
+	printf("\n");
 }
 
 void show_arrays()
@@ -46,6 +46,7 @@ void show_arrays()
 
 	printf("\n** Array output:\n");
 
+	// automatic allocation here, adds to the stack
 	int foo[4];
 	foo[1] = 99;
 	printf(" foo[1]: %d\n", foo[1]);
@@ -56,10 +57,11 @@ void show_arrays()
 	printf(" bar[4][2]: %f\n", bar[4][2]);
 
 	// no bounds checking
-	// printf(" bar[99][4]: %f\n", bar[99][7]);
+	printf(" bar[99][4]: %f\n", bar[99][7]);
 
 	printf(" sizeof foo array: %d\n", (int)sizeof foo);
 	printf(" number of elements: %d\n", (int)(sizeof foo / sizeof foo[0]));
+	printf("\n");
 }
 
 void show_structs()
@@ -76,6 +78,7 @@ void show_structs()
 
 	struct foo woohoo; // woohoo is a variable of type struct foo
 
+	// similar to oop, can access the different variable in the struct
 	woohoo.x = 99;
 	woohoo.y = 99.99;
 
@@ -84,6 +87,7 @@ void show_structs()
 
 	// note the size of the struct
 	printf(" sizeof woohoo: %d\n", (int)sizeof woohoo);
+  	printf("\n");
 }
 
 void show_memory()
