@@ -4,7 +4,9 @@
     "wordsearcher.h": "c",
     "cstring": "c",
     "stdio.h": "c",
-    "text.h": "c"
+    "text.h": "c",
+    "stdlib.h": "c",
+    "traversal.h": "c"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

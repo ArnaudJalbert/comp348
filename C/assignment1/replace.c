@@ -4,7 +4,7 @@
 
 int main()
 {
-    int success = traversal();
+    traversal(".", "short");
 
-    return success;
+    return 0;
 }

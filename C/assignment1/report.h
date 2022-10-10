@@ -1,18 +1,7 @@
-int traversal()
-{
-    char path[] = "test_files/test.txt";
-    char word[] = "frost";
+#ifndef REPORT_H_
+#define REPORT_H_
 
-    char *pathPtr = path;
-    char *wordPtr = word;
+#define MAX_LINE 2048
+#define MAX_FILENAME 1024
 
-    printf("Looking for word: %s\n", word);
-
-    if (readFile(pathPtr, wordPtr) == 1)
-    {
-        printf("\nProperly read the file.\n");
-        return 0;
-    }
-
-    return 1;
-}
+#endif /* REPORT_H_ */

@@ -2,11 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <dirent.h>
 #include "text.h"
-
-#define MAX_LINE 2048
-#define MAX_FILENAME 1024
 
 int readFile(char *pathPtr, char *wordPtr)
 {
@@ -41,22 +37,21 @@ int readFile(char *pathPtr, char *wordPtr)
     // counting how many times we update the file
     int nbUpdates = 0;
 
-    do
+    while (1)
     {
         // extract current line from file and store it in buffer
         fgets(linePtr, MAX_LINE, currentFile);
-
-        if (feof(currentFile))
-        {
-            break;
-        }
 
         if (findWord(replaceFile, linePtr, wordPtr))
         {
             nbUpdates++;
         }
 
-    } while (1);
+        if (feof(currentFile))
+        {
+            break;
+        }
+    }
 
     // closing both files
     fclose(currentFile);
