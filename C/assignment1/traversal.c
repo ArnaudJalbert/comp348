@@ -10,7 +10,7 @@ int traversal(char *dir, char *word)
     struct dirent *entry;
     directory = opendir(dir);
 
-    // check if directory exists
+    // checks if directory exists
     if (directory == NULL)
     {
         printf("Error opening directory.\n");
@@ -31,8 +31,10 @@ int traversal(char *dir, char *word)
         {
             char toTraverse[MAX_FILENAME] = "./";
             strcat(toTraverse, entry->d_name);
-            printf("To traverse: %s\n", toTraverse);
+            printf("Traversing %s:\n{\n", toTraverse);
+            // we traverse that directory and come back when done to traverse this directory
             traversal(toTraverse, word);
+            printf("}\n");
             continue;
         }
 
@@ -44,8 +46,10 @@ int traversal(char *dir, char *word)
             strcpy(file, dir);
             strcat(file, "/");
             strcat(file, entry->d_name);
+            // putting the path of the file in a string
             char *filePtr = file;
             readFile(filePtr, word);
         }
     }
+    return 0;
 }

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "traversal.h": "c",
+    "__locale": "c",
+    "__config": "cpp"
+  }
+}

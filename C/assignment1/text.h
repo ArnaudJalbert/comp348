@@ -8,5 +8,6 @@ int search();
 int readFile(char *pathPtr, char *wordPtr);
 int findWord(FILE *replaceFile, char *linePtr, char *wordPtr);
 void updateWord(FILE *replaceFile, char *linePtr, char *wordPtr, char *ref);
+char *toLowerCase(char *strPtr);
 
 #endif /* TEXT_H_ */
