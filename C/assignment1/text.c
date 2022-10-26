@@ -138,12 +138,14 @@ void updateWord(FILE *replaceFile, char *linePtr, char *wordPtr, char *ref)
 */
 char *toLowerCase(char *strPtr)
 {
-    char *toReturn = malloc((strlen(strPtr) + 1) * sizeof(char));
+    char *toReturn = malloc((strlen(strPtr) + 1) * sizeof(char) + 1);
+    int i;
 
-    for (int i = 0; strPtr[i] != '\0'; i++)
+    for (i = 0; strPtr[i] != '\0'; i++)
     {
         toReturn[i] = tolower(strPtr[i]);
     }
+    toReturn[i] = '\0';
 
     return toReturn;
 }

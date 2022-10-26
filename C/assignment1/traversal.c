@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <dirent.h>
 #include <string.h>
+#include <stdlib.h>
 #include "text.h"
+#include "report.h"
 
-int traversal(char *dir, char *word)
+int traversal(char *dir, char *word, struct logger *logging)
 {
     // initializing directory variable
     DIR *directory;
@@ -33,7 +35,7 @@ int traversal(char *dir, char *word)
             strcat(toTraverse, entry->d_name);
             printf("Traversing %s:\n{\n", toTraverse);
             // we traverse that directory and come back when done to traverse this directory
-            traversal(toTraverse, word);
+            traversal(toTraverse, word, logging);
             printf("}\n");
             continue;
         }
@@ -48,8 +50,12 @@ int traversal(char *dir, char *word)
             strcat(file, entry->d_name);
             // putting the path of the file in a string
             char *filePtr = file;
-            readFile(filePtr, word);
+
+            // reading/updating file in readFile()
+            int updates = readFile(filePtr, word);
+            logging = log_update(logging, filePtr, updates);
         }
     }
+
     return 0;
 }

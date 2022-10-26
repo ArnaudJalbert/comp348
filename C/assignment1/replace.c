@@ -4,18 +4,29 @@
 #include <stdlib.h>
 #include "replace.h"
 #include "traversal.h"
+#include "report.h"
 
 int main(int argc, char *argv[])
 {
     int status = 0;
     if (argc == 2)
     {
-        printf("----------STARTING TRAVERSAL------------\n");
+        // stores word to search for
         char *word = malloc(strlen(argv[1]) * sizeof(char));
         word = argv[1];
+        printf("\nTarget Word: %s\n\n", word);
 
-        status = traversal(".", word);
-        printf("----------TRAVERSAL FINISHED------------\n");
+        // init the logger
+        struct logger *head = init_logger();
+
+        printf("----------STARTING TRAVERSAL------------\n");
+        status = traversal(".", word, head);
+        printf("----------TRAVERSAL FINISHED------------\n\n");
+
+        // displaying the updated filess
+        printf("***Search Report***\n\n");
+        displaySortedLogs(head);
+        printf("\n\n");
     }
     else if (argc == 1)
     {
