@@ -66,7 +66,7 @@ struct logger *traversal(char *dir, char *word, struct logger *logging)
             int updates = readFile(filePtr, word);
 
             // logging the updates and where it was done
-            logging = log_update(logging, entry->d_name, updates);
+            logging = log_update(logging, filePtr, updates);
         }
     }
 
