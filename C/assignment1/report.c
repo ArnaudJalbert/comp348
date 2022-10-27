@@ -14,7 +14,7 @@ struct logger *init_logger()
 };
 
 /*
-    logs the update in the current struct and returns a reference to the next one
+    logs the update in the current struct and returns a reference to the next node
 */
 struct logger *log_update(struct logger *current, char *filename, int updates)
 {
@@ -34,6 +34,7 @@ struct logger *log_update(struct logger *current, char *filename, int updates)
 
 /*
     Start from head and traverses all logs until the end of the list
+    Stores everything in an array while doing it
 */
 void storeInArray(struct logger *head, struct logger *array)
 {
@@ -88,7 +89,7 @@ void sortNodesArray(struct logger *arrayPtr, int arraySize)
 }
 
 /*
-    ¨Prints all updates and filenames from array of struct loggers
+    Prints all updates and filenames from array of struct loggers
 */
 void displayUpdates(struct logger *arrayPtr, int arraySize)
 {
@@ -101,12 +102,12 @@ void displayUpdates(struct logger *arrayPtr, int arraySize)
 
 /*
     Displays all logs, sorted, from the head of loggers
+    Frees the memory for all logs as well
 */
 void displaySortedLogs(struct logger *head)
 {
     // transform the linked list in array
     int arraySize = countNodes(head);
-
     struct logger nodesArray[arraySize];
     struct logger *nodesArrayPtr = nodesArray;
     storeInArray(head, nodesArrayPtr);
@@ -114,12 +115,26 @@ void displaySortedLogs(struct logger *head)
     // sorts the array
     sortNodesArray(nodesArrayPtr, arraySize);
 
+    // displays the sorted updates
     displayUpdates(nodesArrayPtr, arraySize);
+
+    // frees memory
+    freeLoggers(head);
 }
 
-void setToNull(struct logger *node)
+/*
+    Simply frees the memory for all loggers
+*/
+void freeLoggers(struct logger *head)
 {
-    node->previous->next = NULL;
+
+    struct logger *node = head;
+    while (node != NULL)
+    {
+        struct logger *toFree = node;
+        node = node->next;
+        free(toFree);
+    }
 }
 /*
     Used to test that linked list is working properly

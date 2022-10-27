@@ -21,10 +21,10 @@ int nodesComparator(const void *v1, const void *v2);
 void sortNodesArray(struct logger *arrayPtr, int arraySize);
 void displayUpdates(struct logger *arrayPtr, int arraySize);
 void displaySortedLogs(struct logger *head);
-void setToNull(struct logger *node);
+void freeLoggers(struct logger *head);
 int test();
 
-#define MAX_LINE 2048
+#define MAX_LINE 4096
 #define MAX_FILENAME 1024
 
 #endif /* REPORT_H_ */

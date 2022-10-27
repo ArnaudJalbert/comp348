@@ -1,7 +1,7 @@
 #ifndef TEXT_H_
 #define TEXT_H_
 
-#define MAX_LINE 2048
+#define MAX_LINE 4096
 #define MAX_FILENAME 1024
 
 int search();

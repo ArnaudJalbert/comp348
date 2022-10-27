@@ -5,7 +5,13 @@
 #include "text.h"
 #include "report.h"
 
-int traversal(char *dir, char *word, struct logger *logging)
+/*
+    This function will iterate over the current directory and if it finds
+    a .txt file, it will update it with the target word.
+    If it finds another directory, it will call this function recursively
+    on that directory.
+*/
+struct logger *traversal(char *dir, char *word, struct logger *logging)
 {
     // initializing directory variable
     DIR *directory;
@@ -16,7 +22,7 @@ int traversal(char *dir, char *word, struct logger *logging)
     if (directory == NULL)
     {
         printf("Error opening directory.\n");
-        return 1;
+        return NULL;
     }
 
     // iterating through directory
@@ -31,11 +37,15 @@ int traversal(char *dir, char *word, struct logger *logging)
         // checking if the item is a directory
         if (entry->d_type == DT_DIR)
         {
-            char toTraverse[MAX_FILENAME] = "./";
+            char toTraverse[MAX_FILENAME] = "";
+            strcpy(toTraverse, dir);
+            strcat(toTraverse, "/");
             strcat(toTraverse, entry->d_name);
             printf("Traversing %s:\n{\n", toTraverse);
+
             // we traverse that directory and come back when done to traverse this directory
-            traversal(toTraverse, word, logging);
+            // we update the logger with what was logged in the other directory
+            logging = traversal(toTraverse, word, logging);
             printf("}\n");
             continue;
         }
@@ -48,14 +58,18 @@ int traversal(char *dir, char *word, struct logger *logging)
             strcpy(file, dir);
             strcat(file, "/");
             strcat(file, entry->d_name);
+
             // putting the path of the file in a string
             char *filePtr = file;
 
             // reading/updating file in readFile()
             int updates = readFile(filePtr, word);
-            logging = log_update(logging, filePtr, updates);
+
+            // logging the updates and where it was done
+            logging = log_update(logging, entry->d_name, updates);
         }
     }
 
-    return 0;
+    // returns the logger if we called the function recursively
+    return logging;
 }

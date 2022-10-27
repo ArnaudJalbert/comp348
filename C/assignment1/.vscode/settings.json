@@ -5,7 +5,9 @@
     "__config": "cpp",
     "report.h": "c",
     "stdio.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "random": "c",
+    "replace.h": "c"
   },
   "C_Cpp.dimInactiveRegions": false
 }

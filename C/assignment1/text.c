@@ -12,16 +12,16 @@
 int readFile(char *pathPtr, char *wordPtr)
 {
     /*
-        Openning the file for both reading.
+        Openning the file for reading.
         If the file does not exist, fopen() returns NULL.
     */
     FILE *currentFile = fopen(pathPtr, "r");
 
-    // Checking if file has successfully opened, else we return false and stop.
+    // Checking if file has successfully opened.
     if (!currentFile)
     {
         printf("Path %s does not exist.\n", pathPtr);
-        return 1;
+        return 0;
     }
 
     /*
@@ -45,6 +45,7 @@ int readFile(char *pathPtr, char *wordPtr)
         // extract current line from file and store it in buffer
         fgets(linePtr, MAX_LINE, currentFile);
 
+        // cheking if the word is in the target file and updating if it is there
         // getting the number of updates made
         nbUpdates += findWord(replaceFile, linePtr, wordPtr);
 
@@ -76,10 +77,10 @@ int findWord(FILE *replaceFile, char *linePtr, char *wordPtr)
 {
     // keep track of number of changes
     int count = 0;
-    // to lower case all string to ignore the case
+    // to lower case all strings to make our search not case sensitive
     char *linePtrLower = toLowerCase(linePtr);
     char *wordPtrLower = toLowerCase(wordPtr);
-    // keeps track of where the word is
+    // checks if the word is in the line and keeps track of where the word is
     char *ref = strstr(linePtrLower, wordPtrLower);
 
     // looping until there are no more words to replace
@@ -113,6 +114,7 @@ int findWord(FILE *replaceFile, char *linePtr, char *wordPtr)
     free(linePtrLower);
     free(wordPtrLower);
 
+    // returns the number of updates done
     return count;
 }
 
@@ -121,20 +123,23 @@ int findWord(FILE *replaceFile, char *linePtr, char *wordPtr)
 */
 void updateWord(FILE *replaceFile, char *linePtr, char *wordPtr, char *ref)
 {
-    // getting the length of each line to find which position to modify in the line
+    // getting the length of each line in lowercase to find which position to modify in the original line
     int small_len = strlen(ref);
     int big_len = strlen(linePtr);
     int word_len = strlen(wordPtr);
-    // going over each character and changing it to upper case
+    // going over each character of the word and changing it to upper case
     for (int i = 0; i < word_len; i++)
     {
         char to_replace = toupper(linePtr[big_len - small_len + i]);
+        // simple calculation to find the position of the word
+        // in the original line form the lowercase ptrs
         linePtr[big_len - small_len + i] = to_replace;
     }
 }
 
 /*
-    Simply return a pointer to a lower case instance of a given string
+    Simply returns a pointer to a lower case instance of a given string
+    The memory is freed in the other function
 */
 char *toLowerCase(char *strPtr)
 {
