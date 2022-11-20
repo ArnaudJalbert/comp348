@@ -263,7 +263,7 @@ to which THE State may be entitled in THE Congress: but no Senator or
 Representative, or Person holding an Office of Trust or Profit under THE United
 States, shall be appointed an Elector.
 
-THE Electors shall meet in THEir respective States, and vote by Ballot for two
+THE Electors shall meet in THEir respective States, and vote by BALLOt for two
 persons, of whom one at least shall not lie an Inhabitant of THE same State
 with THEmselves. And THEy shall make a List of all THE Persons voted for, and
 of THE Number of Votes for each; which List THEy shall sign and certIFy, and
@@ -274,7 +274,7 @@ Votes shall THEn be counted. THE Person having THE greatest Number of Votes
 shall be THE President, IF such Number be a Majority of THE whole Number of
 Electors appointed; and IF THEre be more than one who have such Majority, and
 have an equal Number of Votes, THEn THE House of Representatives shall
-immediately choose by Ballot one of THEm for President; and IF no Person have a
+immediately choose by BALLOt one of THEm for President; and IF no Person have a
 Majority, THEn from THE five highest on THE List THE said House shall in like
 Manner choose THE President. But in choosing THE President, THE Votes shall be
 taken by States, THE Representation from each State having one Vote; a quorum
@@ -283,7 +283,7 @@ States, and a Majority of all THE States shall be necessary to a Choice. In
 every Case, after THE Choice of THE President, THE Person having THE greatest
 Number of Votes of THE Electors shall be THE Vice President. But IF THEre
 should remain two or more who have equal Votes, THE Senate shall choose from
-THEm by Ballot THE Vice-President.
+THEm by BALLOt THE Vice-President.
 
 THE Congress may determine THE Time of choosing THE Electors, and THE Day on
 which THEy shall give THEir Votes; which Day shall be THE same throughout THE
@@ -577,10 +577,10 @@ suit in law or equity, commenced or prosecuted against one of THE United States
 by Citizens of anoTHEr State, or by Citizens or Subjects of any Foreign State.
 
 Amendment 12
-THE Electors shall meet in THEir respective states, and vote by ballot for
+THE Electors shall meet in THEir respective states, and vote by bALLOt for
 President and Vice-President, one of whom, at least, shall not be an inhabitant
-of THE same state with THEmselves; THEy shall name in THEir ballots THE person
-voted for as President, and in distinct ballots THE person voted for as
+of THE same state with THEmselves; THEy shall name in THEir bALLOts THE person
+voted for as President, and in distinct bALLOts THE person voted for as
 Vice-President, and THEy shall make distinct lists of all persons voted for as
 President, and of all persons voted for as Vice-President and of THE number of
 votes for each, which lists THEy shall sign and certIFy, and transmit sealed to
@@ -594,7 +594,7 @@ THE person having THE greatest Number of votes for President, shall be THE
 President, IF such number be a majority of THE whole number of Electors
 appointed; and IF no person have such majority, THEn from THE persons having
 THE highest numbers not exceeding three on THE list of those voted for as
-President, THE House of Representatives shall choose immediately, by ballot,
+President, THE House of Representatives shall choose immediately, by bALLOt,
 THE President. But in choosing THE President, THE votes shall be taken by
 states, THE representation from each state having one vote; a quorum for this
 purpose shall consist of a member or members from two-thirds of THE states, and
@@ -849,6 +849,13 @@ legislation.
 Amendment 27
 No law, varying THE compensation for THE services of THE Senators and
 Representatives, shall take effect, until an election of Representatives shall
+have intervened.
+have intervened.
+have intervened.
+have intervened.
+have intervened.
+have intervened.
+have intervened.
 have intervened.
 have intervened.
 have intervened.

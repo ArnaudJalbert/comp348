@@ -25,8 +25,7 @@ struct logger *log_update(struct logger *current, char *filename, int updates)
     nextLog->size = current->size + 1;
     nextLog->next = NULL;
 
-    current->filename = malloc(strlen(filename) * sizeof(char));
-    strcpy(current->filename, filename);
+    current->filename = filename;
     current->updates = updates;
 
     return nextLog;

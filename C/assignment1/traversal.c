@@ -70,6 +70,8 @@ struct logger *traversal(char *dir, char *word, struct logger *logging)
         }
     }
 
+    free(directory);
+
     // returns the logger if we called the function recursively
     return logging;
 }
