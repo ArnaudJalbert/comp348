@@ -1,3 +1,7 @@
+"""
+COMP348 Assignment 2 Fall 2022
+Arnaud Jalbert, 40134632
+"""
 import socket
 import sys
 
@@ -52,6 +56,7 @@ def get_cmd():
 
         print("Not a valid command, choose a number from the menu.")
 
+# creates the request depending on cmd passed, will ask user for input and check validity of input
 def get_request(cmd):
     print()
 
@@ -60,6 +65,8 @@ def get_request(cmd):
 
     # each statement asks for all necessarry information to create the request
     # also checks that they are valid for the type of request made
+
+    # !!if user enters a name with spaces, we only keep the first word
 
     # find customer
     if cmd == "1":
@@ -91,7 +98,7 @@ def get_request(cmd):
             name = input("Customer to delete: ")
 
             if check_name(name):
-                request = "delete " + name
+                request = "delete " + name.split(" ")[0]
                 break
 
     # update age
@@ -102,7 +109,7 @@ def get_request(cmd):
             update = input("New age of customer: ")
 
             if check_name(name) and check_age(update):
-                request = "update [" + name + ";" + update.split(" ")[0] + ";age]"
+                request = "update [" + name.split(" ")[0] + ";" + update.split(" ")[0] + ";age]"
                 break
 
     # update address
@@ -113,7 +120,7 @@ def get_request(cmd):
             update = input("New address of customer: ")
 
             if check_name(name) and check_address(update):
-                request = "update [" + name + ";" + update.replace(" ", "/")  + ";address]"
+                request = "update [" + name.split(" ")[0] + ";" + update.replace(" ", "/")  + ";address]"
                 break
 
     # update phone number
@@ -124,7 +131,7 @@ def get_request(cmd):
             update = input("New phone number of customer: ")
 
             if check_name(name) and check_phone_number(update):
-                request = "update [" + name + ";" + update.split(" ")[0]+ ";phone_number]"
+                request = "update [" + name.split(" ")[0] + ";" + update.split(" ")[0]+ ";phone_number]"
                 break
 
     # print db

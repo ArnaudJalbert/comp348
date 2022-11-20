@@ -1,3 +1,8 @@
+"""
+COMP348 Assignment 2 Fall 2022
+Arnaud Jalbert, 40134632
+"""
+
 import socketserver
 
 # to store the database
