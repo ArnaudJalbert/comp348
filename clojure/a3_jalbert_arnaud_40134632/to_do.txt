@@ -1,0 +1,15 @@
+TO DO:
+    -̶ C̶r̶e̶a̶t̶e̶ .̶t̶x̶t̶ f̶i̶l̶e̶s̶ w̶i̶t̶h̶ d̶a̶t̶a̶
+    -̶ P̶r̶i̶n̶t̶ a̶l̶l̶ o̶f̶ t̶h̶e̶ m̶e̶n̶u̶
+    -̶ F̶i̶n̶d̶ h̶o̶w̶ t̶o̶ r̶e̶a̶d̶ .̶t̶x̶t̶ f̶i̶l̶e̶
+    - G̶e̶t̶ i̶n̶p̶u̶t̶ f̶r̶o̶m̶ u̶s̶e̶r̶
+    - C̶h̶e̶c̶k̶ i̶f̶ i̶n̶p̶u̶t̶ i̶s̶ v̶a̶l̶i̶d̶(̶1̶-̶6̶)̶
+    - Parse customer table
+        - Read the file
+        - Split with "|" as parameter each line
+        - Put it in a Map so we can acces by name
+    - Parse product table
+        - Read the file
+        - Split with "|" as parameter each line
+        - Put it in a Map so we can acces by name
+    - Par
