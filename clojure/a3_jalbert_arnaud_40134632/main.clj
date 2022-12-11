@@ -3,28 +3,102 @@
   (:require [clojure.string :as str])
   (:gen-class))
 
+; Function to parse the text into a vector
 (defn parse-txt [path]
-  (def file-txt (slurp path))
+  (def file-txt (str/replace (slurp path) #"\n" "|"))
   (str/split (str file-txt) #"\|"))
 
+; Parsing customer file
 (def cust (parse-txt "cust.txt"))
 
+; Parsing products file
 (def products (parse-txt "products.txt"))
 
+; Parsing sales file
 (def sales (parse-txt "sales.txt"))
 
-(defn display-cust []
-  (parse-txt "cust.txt")
-  (println "Displaying customer "))
+; get customer name by id
+(defn cust-name-by-id [cust-list id i limit]
+  (when (< i limit)
+  (if (== (Integer/parseInt id) (Integer/parseInt (get cust-list i)))
+  (get cust-list (+ i 1))
+  (recur cust-list id (+ i 4) limit))))
 
-(defn display-prod []
-  (println "Displaying customer "))
+(defn cust-id-by-name [cust-list name i limit]
+  (when (< i limit)
+  (if (= name (get cust-list (+ i 1)))
+  (get cust-list i)
+  (recur cust-list name (+ i 4) limit))))
 
-(defn display-sales []
-  (println "Displaying customer "))
+; Displaying a single customer
+(defn display-single-cust [cust i]
+  (print "\"")
+  (print (get cust (+ i 1)))
+  (print "\" \"")
+  (print (get cust (+ i 2)))
+  (print "\" \"")
+  (print (str/trim (get cust (+ i 3))))
+  (print "\""))
+  (flush)
 
-(defn display-total-sales []
-  (println "Displaying customer "))
+; Displaying all customers from a vector
+(defn display-cust [cust-list curr-cust i limit]
+  (when (< i limit)
+  (print curr-cust)
+  (print ":[")
+  (flush)
+  (display-single-cust cust i)
+  (print "]\n")
+  (flush)
+  (recur cust-list (+ 1 curr-cust) (+ i 4) limit)))
+
+; Displaying a single product
+(defn display-single-prod [prod i]
+  (print "\"")
+  (print (get prod (+ i 1)))
+  (print "\" \"")
+  (print (get prod (+ i 2)))
+  (print "\"")
+  (flush))
+
+; Displaying all products from vector
+(defn display-prod [prod-list prod-num i limit]
+  (when (< i limit)
+  (print prod-num)
+  (print ":[")
+  (flush)
+  (display-single-prod prod-list i)
+  (print "]\n")
+  (flush)
+  (recur prod-list (+ 1 prod-num) (+ i 3) limit)))
+
+; Displaying a single sale
+(defn display-single-sale[sale cust i]
+  (print "\"")
+  (print (cust-name-by-id cust (get sale (+ i 1)) 0 (count cust)))
+  (print "\" \"")
+  (print (get sale (+ i 2)))
+  (print "\" \"")
+  (print (get sale (+ i 3)))
+  (print "\"")
+  (flush))
+
+; Displaying all sales from vector
+(defn display-sales [sales-list cust-list curr-sales i limit]
+  (when (< i limit)
+  (print curr-sales)
+  (print ":[")
+  (flush)
+  (display-single-sale sales-list cust-list i)
+  (print "]\n")
+  (flush)
+  (recur sales-list cust-list (+ 1 curr-sales) (+ i 4) limit)))
+
+; display total sales of one customer
+(defn display-total-sales [cust-list sales-list name i limit total]
+  (def cust-id (cust-id-by-name cust-list name 0 (count cust-list)))
+  
+  (flush))
 
 (defn display-count-product []
   (println "Displaying customer "))
@@ -43,30 +117,21 @@
 
 (defn menu-loop []
 
+  (println "")
+
   (print-menu)
 
   (case (read-line)
-    "1" (display-cust)
-    "2" (display-prod)
-    "3" (display-sales)
-    "4" (display-total-sales)
+    "1" (display-cust cust 1 0 (count cust))
+    "2" (display-prod products 1 0 (count products))
+    "3" (display-sales sales cust 1 0 (count sales))
+    "4" (display-total-sales cust sales "Sue Jones" 0 (count sales) 0)
     "5" (display-count-product)
     "6" (System/exit 0)
     (println "Invalid input, try again!"))
 
   (recur))
-(println cust)
-(println products)
-(println sales)
-(flush)
 
 (menu-loop)
-
-
-
-
-
-
-
 
 
