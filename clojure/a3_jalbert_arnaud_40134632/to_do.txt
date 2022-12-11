@@ -4,12 +4,14 @@ TO DO:
     -̶ F̶i̶n̶d̶ h̶o̶w̶ t̶o̶ r̶e̶a̶d̶ .̶t̶x̶t̶ f̶i̶l̶e̶
     - G̶e̶t̶ i̶n̶p̶u̶t̶ f̶r̶o̶m̶ u̶s̶e̶r̶
     - C̶h̶e̶c̶k̶ i̶f̶ i̶n̶p̶u̶t̶ i̶s̶ v̶a̶l̶i̶d̶(̶1̶-̶6̶)̶
-    - Parse customer table
-        - Read the file
-        - Split with "|" as parameter each line
-        - Put it in a Map so we can acces by name
-    - Parse product table
-        - Read the file
-        - Split with "|" as parameter each line
-        - Put it in a Map so we can acces by name
-    - Par
+    - P̶a̶r̶s̶e̶ c̶u̶s̶t̶o̶m̶e̶r̶ t̶a̶b̶l̶e̶
+        - R̶e̶a̶d̶ t̶h̶e̶ f̶i̶l̶e̶
+        - S̶p̶l̶i̶t̶ w̶i̶t̶h̶ "̶|̶"̶ a̶s̶ p̶a̶r̶a̶m̶e̶t̶e̶r̶ e̶a̶c̶h̶ l̶i̶n̶e̶
+        - P̶u̶t̶ i̶t̶ i̶n̶ a̶ M̶a̶p̶ s̶o̶ w̶e̶ c̶a̶n̶ a̶c̶c̶e̶s̶ b̶y̶ n̶a̶m̶e̶
+    - P̶a̶r̶s̶e̶ p̶r̶o̶d̶u̶c̶t̶ t̶a̶b̶l̶e̶
+        - R̶e̶a̶d̶ t̶h̶e̶ f̶i̶l̶e̶
+        - S̶p̶l̶i̶t̶ w̶i̶t̶h̶ "̶|̶"̶ a̶s̶ p̶a̶r̶a̶m̶e̶t̶e̶r̶ e̶a̶c̶h̶ l̶i̶n̶e̶
+        - P̶u̶t̶ i̶t̶ i̶n̶ a̶ M̶a̶p̶ s̶o̶ w̶e̶ c̶a̶n̶ a̶c̶c̶e̶s̶ b̶y̶ n̶a̶m̶e̶
+    - D̶i̶s̶p̶l̶a̶y̶ t̶h̶e̶ c̶u̶s̶t̶o̶m̶e̶r̶s̶
+        - M̶a̶i̶n̶ l̶o̶o̶p̶ t̶h̶a̶t̶ g̶o̶e̶s̶ o̶v̶e̶r̶ a̶l̶l̶ t̶h̶e̶ e̶l̶e̶m̶e̶n̶t̶s̶
+    -
